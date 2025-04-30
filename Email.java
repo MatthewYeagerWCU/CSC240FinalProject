@@ -41,6 +41,10 @@ public class Email {
         return words;
     }
 
+    public String[] getWordData(){
+        return wordData;
+    }
+
     public boolean getIsSpam(){
         return spam;
     }

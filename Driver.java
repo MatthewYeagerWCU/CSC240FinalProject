@@ -1,14 +1,17 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
 public class Driver{
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws FileNotFoundException, IOException{
         // Make an array of all the emails in the csv
         System.out.println("Making emails...");
         Email[] emails = getEmailList();
+        outputEmailData(emails);
 
         // Shuffle the emails
         shuffle(emails);
@@ -62,6 +65,43 @@ public class Driver{
 
         // Return the array of emails
         return emails;
+    }
+
+    // A method to print out email stats to a csv file
+    public static void outputEmailData(Email[] emails) throws IOException{
+        // Delete the data file if already present
+        File emailFile = new File("Data/email_data.csv");
+        emailFile.delete();
+
+        // Make a new file
+        File outputFile = new File("Data/email_data.csv");
+        FileWriter writer = new FileWriter(outputFile);
+
+        // Write the header
+        writer.write("Email,Total words,Unique words,First word,Last Word,isSpam\n");
+
+        // Write the data for each email
+        for(int i = 0; i < emails.length; i++){
+            Email email = emails[i];
+            writer.write(i+",");
+            writer.write(email.getWordData().length+",");
+            writer.write(email.getWordList().length+",");
+
+            if(email.getWordData().length > 0){
+                writer.write(email.getWordData()[0]+",");
+                writer.write(email.getWordData()[email.getWordData().length-1]+",");
+            }
+            else{
+                writer.write(",,");
+            }
+            writer.write(email.getIsSpam()+"");
+
+            if(i < emails.length-1){
+                writer.write("\n");
+            }
+        }
+
+        writer.close();
     }
 
     // A method to train a SpamPredictor object on a set of emails
