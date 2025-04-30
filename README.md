@@ -2,7 +2,7 @@
 By Matthew Yeager  & Aidan Neff
 
 ## Project Description
-This program works as Email Spam detector using a Naive Bayes Algorithm. This is only a simple application, with many more complex version available.
+This program works as an Email Spam detector using a Naive Bayes Algorithm. This is only a simple application, with many more complex versions available.
 
 In simple, each Email can only be one of two values, spam or ham. To find the probability that each email is spam or ham, we find the individual chance that each word is spam or ham.
 
