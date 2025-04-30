@@ -16,6 +16,7 @@ This program takes in email data from a [csv file](https://github.com/MatthewYea
 
 ## UML
 ![UML Diagram of Program](Images/CSC240FinalProjectUML.png)
+
 (UML Diagram of Program)
 
 This program has 4 main points of interest, All of which are used in tandem to reach the final goal of Spam Detection.
