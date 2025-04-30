@@ -74,6 +74,10 @@ public class SpamPredictor {
         double spamChance = (totalSpamEmails+0.0)/(totalHamEmails+totalSpamEmails);
         double hamChance = (totalHamEmails+0.0)/(totalHamEmails+totalSpamEmails);
 
+        // Fix potential divide by 0 issue by making totalSpamEmails and totalHamEmails = 1 if they are equal to 0
+        totalSpamEmails = Math.max(totalSpamEmails, 1);
+        totalHamEmails = Math.max(totalHamEmails, 1);
+
         // Go through every word in spam
         for(int i = 0; i < spamWords.size(); i++){
             String word = spamWords.get(i);
