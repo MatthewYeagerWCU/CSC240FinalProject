@@ -34,4 +34,15 @@ The SpamPredictor Class is by far the most complicated part of the program, as i
 The Driver Class works with all other pieces so far and connects them all together. First it takes in the data from the CSV and makes an array of emails to hold every email. It then shuffles the emails with the shuffle method and splits the emails into a training set and a testing set (80%/20%). We then train the SpamPredictor with the train method and test it with the test method.
 
 ## Program Accuracy
-(NEEDS TO BE ADDED)
+Over the course of 1000 trials,
+
+Mean Correct % = 93.097%<br>
+Standard Deviation = 1.202%
+
+Mean False Negative % = 6.716%<br>
+Standard Deviation = 1.195%
+
+Mean False Positive % = 0.193%<br>
+Standard Deviation = 0.181%
+
+For a very simple implementation of Naive Bayes we are very happy with this outcome. There are ways to increase the Correct % (Multinomial Bayes, Changing the tie breaker method) but all in all, we believe 93% is a very strong percentage.
